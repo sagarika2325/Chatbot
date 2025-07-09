@@ -1,0 +1,20 @@
+.chatbot-launcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #B5179E, #7209B7);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+.chatbot-launcher:hover {
+  transform: scale(1.1);
+}

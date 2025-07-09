@@ -15,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
+    defaults:
+      run:
+        working-directory: backend
+      
 
     steps:
       - uses: actions/checkout@v4
@@ -76,4 +80,5 @@ jobs:
         with:
           app-name: 'chatbot-backend-app'
           slot-name: 'Production'
+          package: backend
           

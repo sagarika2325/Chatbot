@@ -1,6 +1,11 @@
-fastapi
-uvicorn
-langchain
-chromadb
-python-dotenv
-openai
+fastapi==0.110.1
+uvicorn==0.29.0
+langchain==0.2.1
+chromadb==0.4.24
+python-dotenv==1.0.1
+openai==1.30.0
+
+# Optional but recommended for deployment & logging
+gunicorn==21.2.0
+aiohttp==3.9.5
+loguru==0.7.2

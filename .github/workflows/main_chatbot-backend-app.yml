@@ -39,39 +39,6 @@ jobs:
         with:
           name: python-app
           path: release.zip
-    deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    permissions:
-      id-token: write
-      contents: read
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: python-app
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip -d app
-
-      - name: Debug: List files after unzip
-        run: ls -R app
-
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D1F0536D1E954B3FAA381FE21DAA5CD4 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_89B213987FE0459E9A32543A42BBB9DF }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CC6D5394CB8D4068817F2655DBE292A5 }}
-
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'chatbot-backend-app'
-          slot-name: 'Production'
-          package: app
 
   deploy:
     runs-on: ubuntu-latest
@@ -89,10 +56,10 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip -d app
-        
-      - name: Debug: List files after unzip
+
+      - name: "Debug: List files after unzip (Optional)"
         run: ls -R app
-        
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
